@@ -1,0 +1,11 @@
+[
+    {
+        "id": "1",
+        "name": "Ice Wolf",
+        "type": "Pet",
+        "rate": "Rare",
+        "imageURL": "https://placeholder.com",
+        "origin": "habitica"
+        
+    }
+]

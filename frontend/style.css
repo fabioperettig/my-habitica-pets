@@ -1,0 +1,20 @@
+.album-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 4px;
+}
