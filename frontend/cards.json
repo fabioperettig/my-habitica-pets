@@ -7,5 +7,15 @@
         "imageURL": "https://placeholder.com",
         "origin": "habitica"
         
+    },
+
+    {
+        "id": "2",
+        "name": "Normal Wolf",
+        "type": "Pet",
+        "rate": "Common",
+        "imageURL": "https://placeholder.com",
+        "origin": "habitica"
+        
     }
 ]
