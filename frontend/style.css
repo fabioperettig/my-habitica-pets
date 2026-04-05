@@ -1,73 +1,89 @@
-/* Importando uma fonte Pixel Art para completar o clima */
-@import url('https://googleapis.com');
-
-:root {
-    --habitica-purple: #4a2d82;
-    --zelda-gold: #ce9b21;
-    --zelda-gold-light: #f7d45e;
-    --zelda-green: #31a02e;
-    --pixel-border: 4px;
-}
-
-body {
-    background-color: #2a2a2a; /* Fundo escuro para destacar as cores vivas */
-    font-family: 'Press Start 2P', cursive; /* Fonte 16-bits */
-    image-rendering: pixelated; /* Garante que nada fique "embaçado" */
-}
-
-.album-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+#album {
+    display: flex;       
+    flex-wrap: wrap;     
+    gap: 20px;           
+    justify-content: center;
     padding: 20px;
 }
 
+
 .card {
-    background: var(--habitica-purple);
-    padding: 10px;
-    width: 220px;
-    position: relative;
-    
-    /* Borda Dupla Pixelada (Efeito 16-bits) */
-    border: var(--pixel-border) solid #000;
-    box-shadow: 
-        inset -4px -4px 0px 0px rgba(0,0,0,0.5), /* Sombra interna */
-        0 0 0 var(--pixel-border) var(--zelda-gold), /* Borda dourada */
-        0 0 0 calc(var(--pixel-border) * 2) #000;    /* Contorno externo preto */
-    
-    transition: transform 0.1s;
+    flex: 0 1 320px;
+    margin: 0;
+    width: 320px;
+    border: 5px solid #000;
+    border-radius: 0 0 50px 0;
+    padding: 20px;
+    font-family: 'Arial Black', sans-serif;
+
+    /*-hover-*/
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    border-color: #fff; /* Brilho ao selecionar */
-}
 
-/* Detalhe dourado no topo do card (como um cabeçalho de RPG) */
-.card h3 {
-    background: var(--zelda-gold);
-    color: #000;
-    margin: -10px -10px 15px -10px;
-    padding: 10px;
-    font-size: 10px;
-    border-bottom: 4px solid #000;
-    text-shadow: 1px 1px var(--zelda-gold-light);
-}
-
-.card img {
-    border: 3px solid #000;
-    background: #000;
-    display: block;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 10px;
 }
 
-.rarity {
-    background: var(--zelda-green);
-    border: 2px solid #000;
-    color: #fff;
-    padding: 5px;
-    font-size: 8px;
-    display: inline-block;
-    box-shadow: 2px 2px 0px #000;
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    line-height: 1;
 }
 
+.logo-habitica {
+    width: 40px;
+}
+
+.card-number {
+    font-size: 2rem;
+}
+
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-title h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.potion-circle {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.potion-circle img {
+    width: 70%;
+}
+
+
+.main-art-frame {
+    border: 5px solid #000;
+    background: #fff;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.pet-img {
+    width: 100%;
+    display: block;
+}

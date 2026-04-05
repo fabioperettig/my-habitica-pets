@@ -1,21 +1,28 @@
 [
-    {
-        "id": "1",
-        "name": "Ice Wolf",
-        "type": "Pet",
-        "rate": "Rare",
-        "imageURL": "https://placeholder.com",
-        "origin": "habitica"
-        
-    },
-
-    {
-        "id": "2",
-        "name": "Normal Wolf",
-        "type": "Pet",
-        "rate": "Common",
-        "imageURL": "https://placeholder.com",
-        "origin": "habitica"
-        
-    }
+  {
+    "id": 109,
+    "name": "Flying Pig Cupid",
+    "imgPet": "assets/cupid-flying-pig.png",
+    "imgPotion": "assets/cupid-potion.png",
+    "rate": "Uncommon",
+    "bgColor": "#f8d7da"
+  },
+  
+  {
+    "id": 263,
+    "name": "Skeleton Cactus",
+    "imgPet": "assets/skeleton-cactus.png",
+    "imgPotion": "assets/cupid-potion.png",
+    "rate": "Common",
+    "bgColor": "#f2f2f2"
+  },
+  
+  {
+    "id": 109,
+    "name": "Glow in the Dark Cactus",
+    "imgPet": "assets/glow-dark-cactus.png",
+    "imgPotion": "assets/cupid-potion.png",
+    "rate": "Rare",
+    "bgColor": "#000000"
+  }
 ]
