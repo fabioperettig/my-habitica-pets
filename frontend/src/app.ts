@@ -85,11 +85,11 @@ function exibitionCards(list: Card[]) {
 
 async function loadCards() {
     try{
-        const response = await fetch('cards.json')
+        const response = await fetch('http://localhost:8080/cards');
         const data: Card[] = await response.json()
         exibitionCards(data)
     } catch (error) {
-        console.warn("Missing cards.json file or Java API...");
+        console.warn("Missing cards.json file or Java API...", error);
     }
 
 }

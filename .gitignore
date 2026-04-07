@@ -14,6 +14,7 @@ backend/mvnw.cmd
 .env
 *.key
 config.properties
+**/application.properties
 
 # Outros
 .DS_Store
