@@ -1,5 +1,6 @@
 interface Card {
     id: number;
+    level: number;
     name: string;
     imgPet: string;
     imgPotion: string;
@@ -56,8 +57,11 @@ function exibitionCards(list: Card[]) {
         const logoURL = card.logoCard || 'assets/logo-card.png';
         const textColor = getContrastColor(card.bgColor);
 
+        const displayLevel = card.level > 0 ? card.level : 0;
+        const maxLevelClass = card.level === 5 ? 'max-level' : '';
+
         return `
-            <div class="card" style="background-color: ${card.bgColor}; color: ${textColor};">
+             <div class="card ${maxLevelClass}" style="background-color: ${card.bgColor}">
                 <div class="card-header">
                     <div class="logo-area">
                         <img src="${logoURL}" class="logo-habitica">
@@ -76,6 +80,11 @@ function exibitionCards(list: Card[]) {
                 <div class="main-art-frame">
                     <img src="${card.imgPet}" class="pet-img">
                 </div>
+
+                <div class="food-bar-container">
+                    <div class="food-bar-fill" style="width: ${Math.min(displayLevel * 20, 100)}%"></div>
+                </div>
+
             </div>
         `;
     }).join('');
@@ -83,15 +92,30 @@ function exibitionCards(list: Card[]) {
     hoverEffect();
 }
 
+let AllCards: Card[] = [];
+
 async function loadCards() {
     try{
-        const response = await fetch('http://localhost:8080/habitica');
-        const data: Card[] = await response.json()
-        exibitionCards(data)
+        const response = await fetch('http://localhost:8080/cards');
+        AllCards = await response.json()
+        exibitionCards(AllCards)
     } catch (error) {
         console.warn("Missing cards.json file or Java API...", error);
     }
 
 }
+
+///search
+document.getElementById('search-input')?.addEventListener('input', (e) => {
+    const searchValue = (e.target as HTMLInputElement).value.toLowerCase();
+    
+    ///filter
+    const filteredCards = AllCards.filter(card =>
+        card.name.toLowerCase().includes(searchValue));
+    
+    exibitionCards(filteredCards);
+
+});
+
 
 loadCards();

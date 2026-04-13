@@ -63,11 +63,17 @@ public class HabiticaService {
                 Map.Entry<String, JsonNode> entry = fields.next();
                 String petKey = entry.getKey(); //ex 'Wolf-Base'
 
+                /// feed level
+                int level = entry.getValue().asInt();
+
+
                 /// petCatch
                 Card card = new Card();
                 card.setId(idCounter++);
                 card.setName(petKey.replace("-", " ")); // 'Wolf-Base' >> 'Wolf Base'
+                card.setLevel(level);
                 card.setImgPet("https://raw.githubusercontent.com/HabitRPG/habitica-images/32a4678c6b6fe12437c763ab7ed00d8d8ccea6c9/stable/pets/Pet-"+petKey+".png");
+
 
                 /// potionCatch
                 String potionKey = "Base"; ///defalut value

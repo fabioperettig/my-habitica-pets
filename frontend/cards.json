@@ -5,6 +5,7 @@
     "imgPet": "assets/cupid-flying-pig.png",
     "imgPotion": "assets/cupid-potion.png",
     "rate": "Uncommon",
+    "level": 5,
     "bgColor": "#f8d7da"
   },
   
@@ -14,6 +15,7 @@
     "imgPet": "assets/skeleton-cactus.png",
     "imgPotion": "assets/cupid-potion.png",
     "rate": "Common",
+    "level": 5,
     "bgColor": "#f2f2f2"
   },
   
@@ -23,6 +25,7 @@
     "imgPet": "assets/glow-dark-cactus.png",
     "imgPotion": "assets/cupid-potion.png",
     "rate": "Rare",
+    "level": 5,
     "bgColor": "#000000"
   }
 ]
