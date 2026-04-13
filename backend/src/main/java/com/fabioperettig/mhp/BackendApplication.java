@@ -10,4 +10,6 @@ public class BackendApplication {
         SpringApplication.run(BackendApplication.class, args);
     }
 
+    // localhost:8080/habitica
+
 }

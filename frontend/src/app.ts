@@ -85,7 +85,7 @@ function exibitionCards(list: Card[]) {
 
 async function loadCards() {
     try{
-        const response = await fetch('http://localhost:8080/cards');
+        const response = await fetch('http://localhost:8080/habitica');
         const data: Card[] = await response.json()
         exibitionCards(data)
     } catch (error) {

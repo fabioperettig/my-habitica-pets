@@ -1,6 +1,7 @@
 package com.fabioperettig.mhp;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +24,7 @@ public class CardController {
     }
 
     @GetMapping("/habitica")
-    public String testHabitica() {
-        try {
-            // Tenta buscar os dados
-            return habiticaService.getUserPets();
-        } catch (Exception e) {
-            // Se der erro, ele vai cuspir o motivo na tela (ex: 401 Unauthorized)
-            return "ERRO NO HABITICA: " + e.getMessage();
-        }
+    public List<Card> getHabiticaPets() {
+        return habiticaService.getFormattedPets();
     }
 }
