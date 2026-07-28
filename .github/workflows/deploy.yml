@@ -1,0 +1,50 @@
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches: ["main"] # Altere para "master" se a sua branch principal tiver esse nome
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Instalar dependências e fazer Build
+        run: |
+          cd frontend
+          npm ci
+          npm run build
+
+      - name: Configurar Páginas
+        uses: actions/configure-pages@v5
+
+      - name: Fazer upload dos arquivos gerados
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Altere "dist" para "build" caso seu projeto use React comum (CRA) em vez de Vite
+          path: 'frontend/dist'
+
+      - name: Implantar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
