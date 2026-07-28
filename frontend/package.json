@@ -6,7 +6,7 @@
 
     "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && cp index.html dist/ && sed -i 's/dist\\///g' dist/index.html"
+    "build": "tsc && cp index-prod.html dist/index.html"
   },
 
   "keywords": [],
