@@ -96,7 +96,7 @@ let AllCards: Card[] = [];
 
 async function loadCards() {
     try{
-        const response = await fetch('http://localhost:8080/cards');
+        const response = await fetch('https://my-habitica-pets.onrender.com');
         AllCards = await response.json()
         exibitionCards(AllCards)
     } catch (error) {
