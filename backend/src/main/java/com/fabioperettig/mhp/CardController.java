@@ -27,7 +27,7 @@ public class CardController {
         this.habiticaService = habiticaService;
     }
 
-    @GetMapping("/cards") // fusion between server images and manual
+    @GetMapping
     public List<Card> getFullAlbum() {
 
         List<Card> fullAlbum = new ArrayList<>();
