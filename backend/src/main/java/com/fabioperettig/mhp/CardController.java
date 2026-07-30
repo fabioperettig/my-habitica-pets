@@ -5,17 +5,20 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin(origins = "*") // IntelliJ and VSCode communication
+@RequestMapping("/cards")
+@CrossOrigin(origins = "*") // backend and frontend communication
 public class CardController {
 
     private final HabiticaService habiticaService;
@@ -31,8 +34,8 @@ public class CardController {
 
         try{
             ObjectMapper mapper = new ObjectMapper();
-            File jsonFile = new File("../frontend/cards.json");
-            List<Card> manualCards = mapper.readValue(jsonFile, new TypeReference<List<Card>>(){});
+            InputStream is = getClass().getClassLoader().getResourceAsStream("cards.json");
+            List<Card> manualCards = mapper.readValue(is, new TypeReference<List<Card>>(){});
             fullAlbum.addAll(manualCards);
 
             List<Card> habiticaCards = habiticaService.getFormattedPets();
