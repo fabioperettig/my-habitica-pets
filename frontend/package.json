@@ -6,7 +6,7 @@
 
     "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && cp index-prod.html dist/index.html && cp *.css dist/ 2>/dev/null || true"
+    "build": "rm -rf dist && tsc && cp index-prod.html dist/index.html && cp style.css dist/style.css && cp -R assets dist/assets"
   },
 
   "keywords": [],
