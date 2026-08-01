@@ -11,7 +11,7 @@ backend/mvnw
 backend/mvnw.cmd
 
 # Segredos (Crucial quando integrarmos o Habitica)
-.env
+*.env
 *.key
 config.properties
 **/application.properties

@@ -3,30 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="A collection of pets registered in a Habitica account.">
+    <title>My Habitica Pets</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header class="main-header">
         <div class="header-content">
-            <h1>MY HABITICA PETS</h1>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search your pets" autocomplete="off">
-            </div>
+            <a class="brand" href="#" aria-label="My Habitica Pets home">
+                <img id="site-logo" src="assets/branding/logo-false.svg" alt="My Habitica Pets logo">
+                <span>My Habitica Pets</span>
+            </a>
+
+            <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+                <a href="#">About this project</a>
+                <a href="#">What is Habitica?</a>
+                <a href="#">Check it on Github</a>
+            </nav>
+
+            <label class="search-box" for="search-input">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m16.5 16.5 4 4"></path>
+                </svg>
+                <input type="search" id="search-input" placeholder="Search" autocomplete="off">
+            </label>
+
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+                <img class="burger-icon" src="assets/burger-menu.svg" alt="">
+                <svg class="close-icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M5 5 19 19M19 5 5 19"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <main>
-        <div id="album" class="album-container">
-            <!--CARDS SECTION-->
-        </div>
+    <main class="page-layout">
+        <aside class="sidebar" aria-label="Pet filters">
+            <div class="pet-total">
+                <img id="total-egg" alt="Habitica egg" hidden>
+                <div>
+                    <strong>Total Pets</strong>
+                    <span><b id="visible-count">0</b> | <b id="total-count">0</b><span class="total-suffix"> total</span></span>
+                </div>
+            </div>
+
+            <button id="reset-filters" class="reset-button" type="button">Reset Filter</button>
+
+            <fieldset class="filter-list">
+                <legend>Filter pets by type</legend>
+                <label><input type="checkbox" value="STANDARD"> <span>Standard</span></label>
+                <label><input type="checkbox" value="MAGIC_POTION"> <span>Magic Potion</span></label>
+                <label><input type="checkbox" value="QUEST"> <span>Quest</span></label>
+                <label><input type="checkbox" value="WACKY"> <span>Wacky</span></label>
+                <label><input type="checkbox" value="SPECIAL"> <span>Special</span></label>
+            </fieldset>
+
+            <label class="pixel-switch">
+                <span>Pixelize</span>
+                <input id="pixelize-switch" type="checkbox" role="switch">
+                <span class="switch-track" aria-hidden="true"><span></span></span>
+            </label>
+        </aside>
+
+        <section class="collection" aria-live="polite">
+            <p id="status-message" class="status-message">Loading your pets...</p>
+            <div id="pet-groups"></div>
+        </section>
     </main>
 
-    <footer class="main-footer">
-        <p>Created by <strong>@fabioperettig</strong> | Powered by Habitica API</p>
-    </footer>
-    
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m5 15 7-7 7 7"></path>
+        </svg>
+    </button>
+
     <script src="app.js" type="module"></script>
 </body>
 </html>
